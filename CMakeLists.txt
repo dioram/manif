@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.1)
 cmake_policy(SET CMP0048 NEW)
 
-project(manif VERSION 0.0.3 LANGUAGES CXX)
+project(manif VERSION 0.0.5 LANGUAGES CXX)
 
 # Get the project name in capital letters
 # for the lib namespace
@@ -115,12 +115,6 @@ if(tl-optional_FOUND)
   set(tl-optional_DEPENDENCY "find_dependency(tl-optional)")
 else()
   set(tl-optional_DEPENDENCY "")
-endif()
-
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-  target_compile_options(${PROJECT_NAME} INTERFACE -ftemplate-depth=512)
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-  target_compile_options(${PROJECT_NAME} INTERFACE /bigobj)
 endif()
 
 #############
